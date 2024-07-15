@@ -28,7 +28,8 @@ pip install paddleocr
 从整体结构上看，PP-OCRv4仍采取先检测后识别的两阶段方法，使用可微二值化（Differentiable Binarization, DB）算法（论文地址[https://arxiv.org/pdf/1911.08947](https://arxiv.org/pdf/1911.08947)）做文本检测，然后使用MobileNetv3做方向分类以应对不同方向的文本识别，然后使用STVR（论文地址[https://arxiv.org/abs/2205.00159](https://arxiv.org/abs/2205.00159)）进行文本识别。
 
 ## 测试方法
-软件环境参考上述环境配置方法，在AMD Ryzen 7 5800H with Radeon Graphics，NVIDIA GeForce RTX 3060硬件环境下，在自行建立的测试数据集上（有效图片数326，多为短视频截图）测试，将模型识别的结果和手动标注均拼接成完整的字符串，计算两个字符串的词错率（Word Error Rate, WER）、准确率和CPU利用率等性能，结果如下：  
+软件环境参考上述环境配置方法，在AMD Ryzen 7 5800H with Radeon Graphics，NVIDIA GeForce RTX 3060硬件环境下测试  
+在自行建立的测试数据集上（有效图片数326，多为短视频截图）测试，将模型识别的结果和手动标注均拼接成完整的字符串，计算两个字符串的词错率（Word Error Rate, WER）、准确率和CPU利用率等性能，结果如下：  
 WER：0.142（准确率：85.8%）  
 CPU Usage：22.1%  
 Memory Usage：10867.4MB  
