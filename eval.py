@@ -40,8 +40,8 @@ def get_gpu_usage():
         return 0  # 未使用GPU时返回0
 
 
-images_path = "data/ai_img"  # 图片文件夹路径
-labels_path = "data/ai_img/Label.txt"  # 标签文件路径
+images_path = "data/ai_img"  # 图片文件夹路径（替换为自己的路径）
+labels_path = "data/ai_img/Label.txt"  # 标签文件路径（替换为自己的路径）
 label_dict = txt_to_dict(labels_path)
 
 ocr = PaddleOCR(cpu_threads=20, max_batch_size=20, rec_batch_num=20, precision='bf16', rec_image_inverse=False, use_space_char=False)  # 加载ocr模型
