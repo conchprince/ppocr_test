@@ -46,10 +46,10 @@ pip install paddleocr
 加载模型时请根据实际情况选择其中参数，如果不确定实际情况可以换成ocr = PaddleOCR()以使用默认参数
 
 在自行建立的测试数据集上（有效图片数326，多为短视频截图）测试，利用上文中的标注方法进行标注后，将模型识别的结果和标注结果均拼接成完整的字符串，计算两个字符串的词错率（Word Error Rate, WER）、准确率和CPU利用率等性能，结果如下：  
-WER：0.142（准确率：85.8%）  
-CPU Usage：22.1%  
-Memory Usage：10867.4MB  
-GPU Usage：1411.1MB  
-Peak Memory Usage：56.2MB  
-Time：54.2s（每秒处理图片数5.9张）  
+WER：0.125（准确率：87.5%）  
+CPU Usage：12.9%  
+Memory Usage：13982.1MB  
+GPU Usage：1951.5MB  
+Peak Memory Usage：123.7MB  
+Time：39.3s（每秒处理图片数7.7张）  
 注:由于手动添加标注的时候顺序会和实际识别的时候顺序有区别，会导致人为因素的准确率降低，排除这一干扰后实际准确率约97%
