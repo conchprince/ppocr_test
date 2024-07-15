@@ -9,7 +9,7 @@ from paddleocr import PaddleOCR
 
 images_path = "data/ai_img"  # 图片文件夹路径（替换为自己的路径）
 labels_path = "data/ai_img/Label.txt"  # 标签文件路径（替换为自己的路径）
-ocr = PaddleOCR(cpu_threads=20, max_batch_size=20, rec_batch_num=20, precision='bf16', rec_image_inverse=False, use_space_char=False)  # 加载ocr模型
+ocr = PaddleOCR(cpu_threads=20, max_batch_size=20, rec_batch_num=20, rec_image_inverse=False, use_space_char=False)  # 加载ocr模型
 
 def wer(word1, word2):  # 计算wer
     # 先计算编辑距离然后除以word1长度得到wer
