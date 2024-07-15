@@ -31,6 +31,8 @@ pip install paddleocr
 
 从整体结构上看，PP-OCRv4仍采取先检测后识别的两阶段方法，使用可微二值化（Differentiable Binarization, DB）算法（论文地址[https://arxiv.org/pdf/1911.08947](https://arxiv.org/pdf/1911.08947)）进行文本检测，然后使用MobileNetv3进行方向分类以应对不同方向的文本识别，然后使用STVR（论文地址[https://arxiv.org/abs/2205.00159](https://arxiv.org/abs/2205.00159)）进行文本识别。
 
+更详细的算法及模型原理请参考[https://github.com/PaddlePaddle/PaddleOCR/blob/main/doc/doc_ch/algorithm_overview.md](https://github.com/PaddlePaddle/PaddleOCR/blob/main/doc/doc_ch/algorithm_overview.md)
+
 ## 测试方法
 软件环境参考上述环境配置方法，在AMD Ryzen 7 5800H with Radeon Graphics，NVIDIA GeForce RTX 3060硬件环境下测试  
 测试代码参考test.py，使用时请将其中的图片文件夹路径和标注路径替换为自己的对应路径
