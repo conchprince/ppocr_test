@@ -5,7 +5,6 @@ import time
 import psutil
 import pynvml
 import tracemalloc
-from ultralytics import YOLO
 from paddleocr import PaddleOCR
 
 
