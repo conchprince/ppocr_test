@@ -29,6 +29,8 @@ pip install paddleocr
 
 ## 测试方法
 软件环境参考上述环境配置方法，在AMD Ryzen 7 5800H with Radeon Graphics，NVIDIA GeForce RTX 3060硬件环境下测试  
+测试代码参考test.py，使用时请将其中的图片文件夹路径和标注路径替换为自己的对应路径
+加载模型时请根据实际情况选择其中参数，如果不确定实际情况可以换成ocr = PaddleOCR()以使用默认参数
 在自行建立的测试数据集上（有效图片数326，多为短视频截图）测试，将模型识别的结果和手动标注均拼接成完整的字符串，计算两个字符串的词错率（Word Error Rate, WER）、准确率和CPU利用率等性能，结果如下：  
 WER：0.142（准确率：85.8%）  
 CPU Usage：22.1%  
