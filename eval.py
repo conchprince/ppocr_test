@@ -7,6 +7,9 @@ import pynvml
 import tracemalloc
 from paddleocr import PaddleOCR
 
+images_path = "data/ai_img"  # 图片文件夹路径（替换为自己的路径）
+labels_path = "data/ai_img/Label.txt"  # 标签文件路径（替换为自己的路径）
+ocr = PaddleOCR(cpu_threads=20, max_batch_size=20, rec_batch_num=20, precision='bf16', rec_image_inverse=False, use_space_char=False)  # 加载ocr模型
 
 def wer(word1, word2):  # 计算wer
     # 先计算编辑距离然后除以word1长度得到wer
@@ -40,16 +43,12 @@ def get_gpu_usage():
         return 0  # 未使用GPU时返回0
 
 
-images_path = "data/ai_img"  # 图片文件夹路径（替换为自己的路径）
-labels_path = "data/ai_img/Label.txt"  # 标签文件路径（替换为自己的路径）
 label_dict = txt_to_dict(labels_path)
-
-ocr = PaddleOCR(cpu_threads=20, max_batch_size=20, rec_batch_num=20, precision='bf16', rec_image_inverse=False, use_space_char=False)  # 加载ocr模型
-all_wer = []  # 各图片的wer
-num_image = 0  # 图片数量
 
 start_time = time.time()
 tracemalloc.start()
+all_wer = []  # 各图片的wer
+num_image = 0  # 图片数量
 
 with open(labels_path, 'r', encoding='utf-8') as file:
     all_files = os.listdir(images_path)
