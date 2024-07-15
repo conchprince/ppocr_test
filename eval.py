@@ -1,6 +1,6 @@
 import os
-import cv2
 import re
+import cv2
 import time
 import psutil
 import pynvml
