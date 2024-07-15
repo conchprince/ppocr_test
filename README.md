@@ -24,6 +24,7 @@ pip install PPOCRLabel
 ```bash
 pip install paddleocr
 ```
+
 大致原理: 
 
 ![img_1](https://github.com/user-attachments/assets/8894ee4f-f698-442b-95fc-aaf408af90f2)
