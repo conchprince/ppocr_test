@@ -24,9 +24,8 @@ pip install PPOCRLabel
 ```bash
 pip install paddleocr
 ```
-大致原理:  
-![Uploading img_1.png…]()
-
+大致原理: 
+![img_1](https://github.com/user-attachments/assets/8894ee4f-f698-442b-95fc-aaf408af90f2)
 从整体结构上看，PP-OCRv4仍采取先检测后识别的两阶段方法，使用可微二值化（Differentiable Binarization, DB）算法（论文地址[https://arxiv.org/pdf/1911.08947](https://arxiv.org/pdf/1911.08947)）进行文本检测，然后使用MobileNetv3进行方向分类以应对不同方向的文本识别，然后使用STVR（论文地址[https://arxiv.org/abs/2205.00159](https://arxiv.org/abs/2205.00159)）进行文本识别。
 
 ## 测试方法
