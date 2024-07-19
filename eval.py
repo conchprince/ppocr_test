@@ -45,11 +45,11 @@ def get_gpu_usage():
 
 label_dict = txt_to_dict(labels_path)
 
-start_time = time.time()
-tracemalloc.start()
 all_wer = []  # 存放各图片的wer
 num_image = 0  # 图片数量
+tracemalloc.start()
 
+total_time_start = time.time()
 with open(labels_path, 'r', encoding='utf-8') as file:
     all_files = os.listdir(images_path)
     for filename in [filename for filename in all_files if filename.endswith(('.jpeg', '.jpg', '.png'))]:
@@ -59,11 +59,14 @@ with open(labels_path, 'r', encoding='utf-8') as file:
             if image.shape[0] > 640:
                 image = cv2.resize(image, (int(image.shape[1] * 640 / image.shape[0]), 640), interpolation=cv2.INTER_AREA)
 
-            # 获取ocr结果
+            # 获取ocr结果并拼接
+            start_time = time.time()
             ocr_results = ocr.ocr(image)
+            end_time = time.time()
+            inference_time += end_time - start_time
             ocr_result = ''.join([result[1][0] for result in ocr_results[0]])
 
-            # 获取label
+            # 获取label并拼接
             image_labels = label_dict.get(filename, "")
             transcriptions = re.findall(r'"transcription": "(.*?)"', image_labels)
             image_label = ''.join(transcriptions)
@@ -73,7 +76,7 @@ with open(labels_path, 'r', encoding='utf-8') as file:
         except:
             continue
 
-end_time = time.time()
+total_time = time.time()-total_time_start
 cpu_usage = psutil.cpu_percent()
 memory_info = psutil.virtual_memory()
 gpu_usage = get_gpu_usage()
